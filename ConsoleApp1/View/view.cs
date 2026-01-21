@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -74,18 +75,11 @@ namespace ConsoleApp1.View
                 Console.WriteLine($"{item.ToString().Replace("_", " ")}");
             }
 
-            int choice = int.Parse(Console.ReadLine());
+            string choice = Console.ReadLine();
 
             switch (choice)
             {
-                case 1:
-
-
-
-
-
-                    break;
-                case 0:
+                case "0":
 
                     Console.Clear();
                     Console.WriteLine("Returning to main menu");
@@ -95,10 +89,8 @@ namespace ConsoleApp1.View
                     break;
                 default:
 
-                    Console.Clear();
-                    Console.WriteLine("Please enter a valid choice. Returning to Menu");
-                    Task.Delay(2000).Wait();
-                    newEquation();
+                    MathController eq = new MathController();
+                    eq.equationController(choice);
 
                     break;
             }
